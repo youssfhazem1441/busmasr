@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MiniBus Egypt — Launch Roadmap</title>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg: #f8fafc;
+            --surface: #ffffff;
+            --border: #e2e8f0;
+            --text-main: #0f172a;
+            --text-muted: #64748b;
+            --primary: #ea580c;
+            --primary-light: #ffedd5;
+            --success: #16a34a;
+            --success-light: #dcfce7;
+            --shadow: 0 4px 12px rgba(15, 23, 42, 0.05);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background: var(--bg);
+            color: var(--text-main);
+            font-family: 'Outfit', sans-serif;
+            line-height: 1.6;
+            padding: 40px 16px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: var(--surface);
+            border-radius: 16px;
+            padding: 32px;
+            border: 1px solid var(--border);
+            box-shadow: var(--shadow);
+        }
+
+        h1 {
+            font-size: 28px;
+            font-weight: 800;
+            color: var(--text-main);
+            margin-bottom: 8px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .badge {
+            font-size: 12px;
+            background: var(--primary-light);
+            color: var(--primary);
+            padding: 4px 10px;
+            border-radius: 99px;
+            font-weight: 700;
+        }
+
+        .subtitle {
+            font-size: 15px;
+            color: var(--text-muted);
+            margin-bottom: 24px;
+            border-bottom: 1.5px solid var(--border);
+            padding-bottom: 16px;
+        }
+
+        .section {
+            margin-bottom: 28px;
+            padding: 20px;
+            border-radius: 12px;
+            border: 1.5px dashed var(--border);
+            background: #fafafb;
+        }
+
+        .section.completed {
+            border-color: var(--success);
+            background: #f0fdf4;
+        }
+
+        .section-header {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            margin-bottom: 12px;
+        }
+
+        .section-header input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            accent-color: var(--success);
+            cursor: pointer;
+            margin-top: 4px;
+        }
+
+        .section-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--text-main);
+        }
+
+        .step-desc {
+            font-size: 14px;
+            color: var(--text-muted);
+            margin-bottom: 16px;
+        }
+
+        .how-to {
+            background: var(--surface);
+            border-radius: 8px;
+            padding: 16px;
+            border: 1px solid var(--border);
+            font-size: 13.5px;
+            margin-bottom: 12px;
+        }
+
+        .how-to h4 {
+            font-weight: 700;
+            margin-bottom: 6px;
+            color: var(--text-main);
+        }
+
+        .how-to ol,
+        .how-to ul {
+            margin-left: 20px;
+        }
+
+        .how-to li {
+            margin-bottom: 4px;
+        }
+
+        .code-block {
+            background: #1e293b;
+            color: #f8fafc;
+            font-family: monospace;
+            padding: 10px;
+            border-radius: 6px;
+            margin: 8px 0;
+            font-size: 12.5px;
+            overflow-x: auto;
+        }
+
+        .sla {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            background: #f0fdf4;
+            color: #15803d;
+            padding: 8px 12px;
+            border-radius: 6px;
+            font-size: 13px;
+            font-weight: 600;
+        }
+
+        .sla-amber {
+            background: #fffbeb;
+            color: #b45309;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-bottom: 20px;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 600;
+        }
+
+        .back-btn:hover {
+            color: var(--primary);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <a href="index.html" class="back-btn">← Back to App</a>
+        <h1>Launch & Monetization Roadmap <span class="badge">100% Free Hosting</span></h1>
+        <p class="subtitle">Complete guide for deploying and monetizing MiniBus Egypt without spend. Track your progress
+            with the interactive checkboxes below.</p>
+
+        <!-- SECTION 1: GIT & GITHUB -->
+        <div class="section" id="sec-1">
+            <div class="section-header">
+                <input type="checkbox" id="check-1" onchange="toggleComplete(1)">
+                <div>
+                    <h2 class="section-title">Step 1: Code Versioning with GitHub ($0)</h2>
+                    <p class="step-desc">Establish git version control and push the project files to a private or public
+                        GitHub repository to set up automatic deployment integrations.</p>
+                </div>
+            </div>
+
+            <div class="how-to">
+                <h4>How-To Steps:</h4>
+                <ol>
+                    <li>Open your terminal/command prompt at the root directory of <code>MiniBus Egypt</code>.</li>
+                    <li>Initialize the repository and commit your files:
+                        <div class="code-block">
+                            git init<br>
+                            git add .<br>
+                            git commit -m "initial commit: minibus egypt production v1"
+                        </div>
+                    </li>
+                    <li>Create a new repository named <code>minibus-egypt</code> on your <a href="https://github.com"
+                            target="_blank">GitHub Dashboard</a>.</li>
+                    <li>Set up the remote and push the branch:
+                        <div class="code-block">
+                            git branch -M main<br>
+                            git remote add origin https://github.com/YOUR_USERNAME/minibus-egypt.git<br>
+                            git push -u origin main
+                        </div>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="sla">
+                <span>✓ Instant: Repository established and secure. Ready for automated deploy.</span>
+            </div>
+        </div>
+
+        <!-- SECTION 2: CLOUDFLARE PAGES -->
+        <div class="section" id="sec-2">
+            <div class="section-header">
+                <input type="checkbox" id="check-2" onchange="toggleComplete(2)">
+                <div>
+                    <h2 class="section-title">Step 2: Continuous Deployment via Cloudflare Pages ($0)</h2>
+                    <p class="step-desc">Deploy the static files globally to a lightning-fast CDN with permanent SSL
+                        protection. Cloudflare Pages is completely free with no limits on traffic.</p>
+                </div>
+            </div>
+
+            <div class="how-to">
+                <h4>How-To Steps:</h4>
+                <ol>
+                    <li>Log in or register at the <a href="https://dash.cloudflare.com" target="_blank">Cloudflare
+                            Dashboard</a>.</li>
+                    <li>Navigate to <strong>Workers & Pages</strong> > <strong>Create Application</strong> >
+                        <strong>Pages</strong> tab.
+                    </li>
+                    <li>Click <strong>Connect to Git</strong>, select your GitHub account, and select the
+                        <code>minibus-egypt</code> repository.
+                    </li>
+                    <li>Configure deployment configurations exactly as follows:
+                        <ul>
+                            <li><strong>Framework preset:</strong> <code>None</code> (We are pure Vanilla HTML/CSS/JS)
+                            </li>
+                            <li><strong>Build command:</strong> <em>Keep completely blank (empty)</em></li>
+                            <li><strong>Build output directory:</strong> <code>/</code> (or leave empty, which defaults
+                                to root where index.html sits)</li>
+                        </ul>
+                    </li>
+                    <li>Click <strong>Save and Deploy</strong>. Cloudflare will build the static site.</li>
+                </ol>
+            </div>
+
+            <div class="sla">
+                <span>✓ SLA: Deployment takes ~2-5 minutes. You will receive a permanent live URL like
+                    <code>minibus-egypt.pages.dev</code>. Future git pushes auto-deploy instantly.</span>
+            </div>
+        </div>
+
+        <!-- SECTION 3: PAGES FOR AD ELIGIBILITY -->
+        <div class="section" id="sec-3">
+            <div class="section-header">
+                <input type="checkbox" id="check-3" onchange="toggleComplete(3)">
+                <div>
+                    <h2 class="section-title">Step 3: Create Mandatory Pages for Google AdSense ($0)</h2>
+                    <p class="step-desc">Google AdSense automatically rejects sites that lack a standard Privacy Policy
+                        and About page. Create them to pass eligibility screenings.</p>
+                </div>
+            </div>
+
+            <div class="how-to">
+                <h4>How-To Steps:</h4>
+                <ol>
+                    <li>Verify that <code>privacy-policy.html</code> and <code>about.html</code> exist at your project's
+                        root folder.</li>
+                    <li>Check that the footer of <code>index.html</code> has clear, accessible links pointing to them.
+                    </li>
+                    <li>Commit these files and push to GitHub so your Cloudflare Pages live URL has them ready:
+                        <div class="code-block">
+                            git add .<br>
+                            git commit -m "add policy and about pages for adsense approval"<br>
+                            git push
+                        </div>
+                    </li>
+                </ol>
+            </div>
+
+            <div class="sla">
+                <span>✓ Instant: Cloudflare will deploy the changes automatically in 30 seconds.</span>
+            </div>
+        </div>
+
+        <!-- SECTION 4: ADSENSE APPLICATION -->
+        <div class="section" id="sec-4">
+            <div class="section-header">
+                <input type="checkbox" id="check-4" onchange="toggleComplete(4)">
+                <div>
+                    <h2 class="section-title">Step 4: Register & Apply on Google AdSense ($0)</h2>
+                    <p class="step-desc">Initiate the AdSense application process. Google will inspect your content,
+                        layout, traffic value, and compliance pages.</p>
+                </div>
+            </div>
+
+            <div class="how-to">
+                <h4>How-To Steps:</h4>
+                <ol>
+                    <li>Navigate to <a href="https://google.com/adsense" target="_blank">Google AdSense</a> and click
+                        <strong>Get Started</strong>.
+                    </li>
+                    <li>Enter your live Cloudflare Pages URL (or custom domain) and your payment region (Egypt).</li>
+                    <li>Copy the AdSense verification code snippet and paste it into the <code><head></code> of
+                        <code>index.html</code>.
+                    </li>
+                    <li>Create an <code>ads.txt</code> file in your root directory containing Google's verified client
+                        string to prove ownership.</li>
+                    <li>Submit your application for review.</li>
+                </ol>
+            </div>
+
+            <div class="sla sla-amber">
+                <span>⌛ SLA: Review takes 2 to 14 days. Minimum payout is $100, paid directly via Bank Wire (supported
+                    by Egyptian banks in EGP/USD).</span>
+            </div>
+        </div>
+
+        <!-- SECTION 5: BACKUP banner PITCH -->
+        <div class="section" id="sec-5">
+            <div class="section-header">
+                <input type="checkbox" id="check-5" onchange="toggleComplete(5)">
+                <div>
+                    <h2 class="section-title">Step 5: High-Yield Local Ad Banner Pitch (Immediate Backup)</h2>
+                    <p class="step-desc">While waiting for AdSense's review SLA, pitch Egyptian businesses (e.g. food
+                        delivery, ride-hailing, tech hubs, or telecom resellers) for custom monthly banner spaces.</p>
+                </div>
+            </div>
+
+            <div class="how-to">
+                <h4>Pitch Blueprint:</h4>
+                <ul>
+                    <li><strong>Target audience:</strong> Mobile food delivery apps (e.g. Talabat, elmenus),
+                        ride-sharing (InDrive, Uber), or local bus lines (Mwasalat Misr, Swvl).</li>
+                    <li><strong>The Pitch:</strong> "MiniBus Egypt gets direct daily attention from active street
+                        commuters in Cairo and Giza who use transit multiple times a day. We will display your
+                        promotional banner with a direct voucher link."</li>
+                    <li><strong>Sponsorship tiers:</strong> Offer the Top Ad zone for 1,500 EGP/month or the Bottom Ad
+                        zone for 1,000 EGP/month as a starting rate.</li>
+                </ul>
+            </div>
+
+            <div class="sla">
+                <span>✓ Fast: Requires zero approval, has direct payout, and establishes powerful local business
+                    relationships.</span>
+            </div>
+        </div>
+
+    </div>
+
+    <script>
+        // Load checkbox states from localStorage
+        window.addEventListener('DOMContentLoaded', () => {
+            for (let i = 1; i <= 5; i++) {
+                const checked = localStorage.getItem('minibus-roadmap-step-' + i) === 'true';
+                document.getElementById('check-' + i).checked = checked;
+                toggleComplete(i, false);
+            }
+        });
+
+        function toggleComplete(id, save = true) {
+            const checkbox = document.getElementById('check-' + id);
+            const section = document.getElementById('sec-' + id);
+
+            if (checkbox.checked) {
+                section.classList.add('completed');
+            } else {
+                section.classList.remove('completed');
+            }
+
+            if (save) {
+                localStorage.setItem('minibus-roadmap-step-' + id, checkbox.checked);
+            }
+        }
+    </script>
+</body>
+
+</html>

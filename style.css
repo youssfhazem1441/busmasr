@@ -1,0 +1,1197 @@
+/* MiniBus Egypt — "Cairo Ink" editorial theme */
+
+:root {
+  /* Warm cream "paper" backgrounds & surfaces */
+  --bg: #f6f1e7;
+  /* cream paper page background */
+  --surface: #fffdf8;
+  /* warm paper card surface */
+  --surface-2: #efe8d8;
+  /* nested warm panel */
+  --surface-3: #e2d8c3;
+  /* warm dividers and borders */
+  --line: #d8ccb4;
+  /* stronger hairline for crisp editorial borders */
+
+  /* Ink typography (warm near-black) */
+  --text-1: #1a1714;
+  /* ink — primary text */
+  --text-2: #4a4038;
+  /* warm body text */
+  --text-3: #8a7d6b;
+  /* muted warm text */
+
+  /* Clay-red primary accent */
+  --amber: #c1461f;
+  /* clay / terracotta — brand accent */
+  --amber-light: #f5e0d6;
+  /* soft clay tint */
+  --amber-dark: #9c3213;
+  /* deep clay contrast */
+
+  /* Olive — second leg / destination */
+  --green: #5f6b2f;
+  --green-light: #e6e8d3;
+
+  /* Muted teal — transfer hub */
+  --blue: #2f6b62;
+  --blue-light: #d9e8e4;
+
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 12px;
+  --radius-xl: 14px;
+
+  /* Minimal, flat shadows — the design leans on crisp borders instead */
+  --shadow-1: 0 1px 2px rgba(26, 23, 20, 0.04);
+  --shadow-2: 0 1px 3px rgba(26, 23, 20, 0.05);
+  --shadow-3: 0 8px 24px -12px rgba(26, 23, 20, 0.18);
+
+  --font-ar: 'Readex Pro', sans-serif;
+  --font-en: 'Readex Pro', sans-serif;
+  --font-display: 'Amiri', 'Readex Pro', serif;
+  /* Thick, blocky, all-caps display face for route numbers — the same bold
+     "destination sign" feel as a real minibus placard, read at a glance. */
+  --font-route-number: 'Anton', 'Readex Pro', sans-serif;
+
+  --ease: cubic-bezier(.4, 0, .2, 1);
+  --fast: .15s;
+  --slow: .25s;
+}
+
+/* ─── Reset ─────────────────────────────────────────────── */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border: none;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text-1);
+  font-family: var(--font-ar);
+  font-size: 15px;
+  line-height: 1.55;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--surface-3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-3);
+}
+
+/* ─── Layout ─────────────────────────────────────────────── */
+.app-container {
+  width: 100%;
+  max-width: 460px;
+  min-height: 100vh;
+  padding: 0 16px 32px;
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+/* ─── Header ─────────────────────────────────────────────── */
+.app-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px 2px 16px;
+  border-bottom: 1.5px solid var(--line);
+}
+
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+.logo-mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 42px;
+  height: 42px;
+  background: var(--amber);
+  color: #fff;
+  border-radius: 12px;
+  flex-shrink: 0;
+  box-shadow: 0 2px 8px rgba(193, 70, 31, 0.28);
+}
+
+.logo-icon-svg {
+  color: #fff;
+  flex-shrink: 0;
+}
+
+.app-header h1 {
+  font-family: var(--font-display);
+  font-size: 27px;
+  font-weight: 700;
+  color: var(--text-1);
+  line-height: 1.1;
+}
+
+.app-header p {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-3);
+  margin-top: 3px;
+}
+
+/* ─── Language button ────────────────────────────────────── */
+.lang-btn {
+  background: transparent;
+  color: var(--text-2);
+  font-family: var(--font-en);
+  font-size: 12px;
+  font-weight: 600;
+  padding: 7px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  border: 1.5px solid var(--line);
+  transition: border-color var(--fast) var(--ease), color var(--fast) var(--ease);
+}
+
+.lang-btn:hover {
+  border-color: var(--amber);
+  color: var(--amber-dark);
+}
+
+.lang-btn:active {
+  transform: scale(.97);
+}
+
+/* ─── Ad placeholders ────────────────────────────────────── */
+.ad-placeholder {
+  background: transparent;
+  border: 1.5px dashed var(--line);
+  border-radius: var(--radius-md);
+  padding: 10px 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-3);
+  font-size: 10px;
+  font-family: var(--font-en);
+  font-weight: 600;
+  letter-spacing: .4px;
+}
+
+.top-ad {
+  min-height: 48px;
+}
+
+.bottom-ad {
+  min-height: 72px;
+  margin-top: auto;
+}
+
+/* ─── Search panel ───────────────────────────────────────── */
+.search-panel {
+  background: var(--surface);
+  border-radius: var(--radius-xl);
+  padding: 20px;
+  border: 1.5px solid var(--line);
+  box-shadow: var(--shadow-2);
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  position: relative;
+  z-index: 10;
+}
+
+/* ─── Input wrapper ──────────────────────────────────────── */
+.input-wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 12px 0;
+}
+
+.input-wrapper label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--amber-dark);
+  padding-right: 2px;
+}
+
+.input-field-container {
+  display: flex;
+  align-items: center;
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  padding: 12px 14px;
+  gap: 10px;
+  border: 1.5px solid var(--line);
+  transition: border-color var(--fast) var(--ease),
+    box-shadow var(--fast) var(--ease);
+}
+
+.input-field-container:hover {
+  border-color: var(--text-3);
+}
+
+.input-field-container:focus-within {
+  background: var(--surface);
+  border-color: var(--amber);
+  box-shadow: 0 0 0 3px rgba(193, 70, 31, 0.14);
+}
+
+.input-icon {
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+  color: var(--text-3);
+  transition: color var(--fast) var(--ease);
+}
+
+.input-field-container:focus-within .input-icon {
+  color: var(--amber);
+}
+
+.input-field-container input {
+  flex: 1;
+  background: transparent;
+  color: var(--text-1);
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 500;
+  outline: none;
+  min-width: 0;
+}
+
+.input-field-container input::placeholder {
+  color: var(--text-3);
+  font-weight: 400;
+}
+
+/* Clear button */
+.clear-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: none;
+  color: var(--text-3);
+  font-size: 13px;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background var(--fast) var(--ease), color var(--fast) var(--ease);
+}
+
+.clear-btn:hover {
+  background: var(--surface-2);
+  color: var(--text-2);
+}
+
+/* ─── Swap button ────────────────────────────────────────── */
+.swap-btn-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 6px 0;
+  z-index: 20;
+}
+
+.swap-btn {
+  background: var(--surface);
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1.5px solid var(--line);
+  transition: border-color var(--fast) var(--ease),
+    transform var(--fast) var(--ease);
+}
+
+.swap-btn:hover {
+  border-color: var(--amber);
+}
+
+.swap-icon {
+  width: 17px;
+  height: 17px;
+  color: var(--amber);
+  transition: transform var(--slow) var(--ease);
+}
+
+.swap-btn:active {
+  transform: scale(.93);
+}
+
+.swap-btn.clicked .swap-icon {
+  transform: rotate(180deg);
+}
+
+/* ─── Divider between inputs ─────────────────────────────── */
+.input-divider {
+  height: 1px;
+  background: var(--line);
+  margin: 0 4px;
+}
+
+/* ─── Search button ──────────────────────────────────────── */
+.primary-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  width: 100%;
+  background: var(--amber);
+  color: #fff;
+  font-family: inherit;
+  font-size: 15px;
+  font-weight: 700;
+  padding: 14px;
+  border-radius: var(--radius-md);
+  cursor: pointer;
+  margin-top: 16px;
+  transition: background var(--fast) var(--ease),
+    transform var(--fast) var(--ease);
+}
+
+.primary-btn:hover {
+  background: var(--amber-dark);
+}
+
+.primary-btn:active {
+  transform: scale(.98);
+}
+
+.btn-icon-svg {
+  color: white;
+  flex-shrink: 0;
+}
+
+/* ─── Autocomplete dropdown ──────────────────────────────── */
+.suggestions-list {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--line);
+  box-shadow: var(--shadow-3);
+  max-height: 200px;
+  overflow-y: auto;
+  z-index: 100;
+  list-style: none;
+  padding: 4px;
+}
+
+.suggestions-list.hidden {
+  display: none;
+}
+
+.suggestions-list li {
+  padding: 10px 14px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--text-2);
+  text-align: right;
+  transition: background var(--fast) var(--ease), color var(--fast) var(--ease);
+}
+
+.suggestions-list li:hover {
+  background: var(--amber-light);
+  color: var(--amber-dark);
+}
+
+/* ─── Results area ───────────────────────────────────────── */
+.results-container {
+  flex-grow: 1;
+}
+
+.results-section {
+  margin-bottom: 20px;
+}
+
+.section-title {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-1);
+  margin-bottom: 14px;
+  padding-right: 11px;
+  border-right: 3px solid var(--amber);
+}
+
+.cards-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ─── Direct route card ──────────────────────────────────── */
+.route-card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 1.5px solid var(--line);
+  transition: border-color var(--slow) var(--ease),
+    box-shadow var(--slow) var(--ease);
+}
+
+.route-card:hover {
+  border-color: var(--amber);
+  box-shadow: var(--shadow-3);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.route-badge-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.route-badge {
+  background: var(--amber);
+  color: white;
+  font-family: var(--font-route-number);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1;
+  padding: 6px 12px 4px;
+  border-radius: var(--radius-sm);
+  letter-spacing: .5px;
+}
+
+.route-badge.small {
+  font-size: 13px;
+  padding: 5px 9px 3px;
+}
+
+.route-badge.transfer-leg {
+  background: var(--green);
+}
+
+.route-type-label {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--amber-dark);
+  background: var(--amber-light);
+  padding: 3px 9px;
+  border-radius: var(--radius-sm);
+}
+
+.route-type-label.reverse-note {
+  color: var(--blue);
+  background: var(--blue-light);
+  font-weight: 600;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.route-type-label.reverse-note svg {
+  width: 12px;
+  height: 12px;
+  flex-shrink: 0;
+}
+
+.route-info-meta {
+  text-align: left;
+}
+
+.stops-count-badge {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-3);
+}
+
+.stops-count-badge strong {
+  color: var(--text-2);
+  font-weight: 700;
+}
+
+/* Primary heading: the rider's ACTUAL boarding → alighting stops. Colored to
+   match the timeline dots below (origin = clay, destination = green) so the
+   whole card reads as one consistent story, not "the line's full path". */
+.trip-headline {
+  font-family: var(--font-display);
+  font-size: 19px;
+  font-weight: 700;
+  line-height: 1.3;
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.trip-headline .dir-from {
+  color: var(--amber-dark);
+}
+
+.trip-headline .dir-to {
+  color: var(--green);
+}
+
+.trip-headline.leg-headline {
+  font-size: 16px;
+}
+
+.dir-arrow {
+  width: 20px;
+  height: 20px;
+  color: var(--text-3);
+  flex-shrink: 0;
+}
+
+/* Secondary caption: the bus LINE's own official direction/name — useful
+   context, but subordinate to the rider's actual trip above. */
+.line-subtitle {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--text-3);
+}
+
+.line-subtitle-label {
+  font-weight: 700;
+  color: var(--text-3);
+}
+
+.line-subtitle .dir-from,
+.line-subtitle .dir-to {
+  color: var(--text-3);
+}
+
+.line-subtitle .dir-arrow {
+  width: 12px;
+  height: 12px;
+  color: var(--text-3);
+}
+
+.card-company {
+  font-size: 12px;
+  color: var(--text-3);
+  font-weight: 500;
+}
+
+.card-company strong {
+  color: var(--text-2);
+  font-weight: 600;
+}
+
+.card-fare {
+  display: flex;
+}
+
+.fare-pill {
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--green);
+  background: var(--green-light);
+  padding: 4px 11px;
+  border-radius: var(--radius-sm);
+  font-family: inherit;
+}
+
+.fare-pill strong {
+  font-weight: 800;
+}
+
+button.fare-pill {
+  cursor: pointer;
+  border: 1px dashed transparent;
+  transition: border-color var(--fast) var(--ease), background var(--fast) var(--ease);
+}
+
+button.fare-pill:hover {
+  border-color: var(--green);
+}
+
+/* ─── Contribute bar ─────────────────────────────────────── */
+.contribute-bar {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 4px 0 2px;
+}
+
+.ghost-btn {
+  flex: 1 1 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: transparent;
+  color: var(--text-2);
+  font-family: inherit;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--line);
+  cursor: pointer;
+  transition: border-color var(--fast) var(--ease), color var(--fast) var(--ease), background var(--fast) var(--ease);
+}
+
+.ghost-btn svg {
+  width: 16px;
+  height: 16px;
+  flex-shrink: 0;
+}
+
+.ghost-btn:hover {
+  border-color: var(--amber);
+  color: var(--amber-dark);
+}
+
+.ghost-btn:active {
+  transform: scale(.99);
+}
+
+.ghost-btn.ghost-primary {
+  border-color: var(--amber);
+  color: var(--amber-dark);
+  background: var(--amber-light);
+}
+
+.ghost-btn.ghost-primary:hover {
+  background: var(--amber);
+  color: #fff;
+}
+
+/* ─── Modal ──────────────────────────────────────────────── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(26, 23, 20, 0.5);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  z-index: 1000;
+  padding: 0;
+}
+
+@media (min-width: 520px) {
+  .modal-overlay {
+    align-items: center;
+    padding: 20px;
+  }
+}
+
+.modal {
+  background: var(--surface);
+  width: 100%;
+  max-width: 460px;
+  max-height: 92vh;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  border: 1.5px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  animation: modal-in var(--slow) var(--ease);
+}
+
+@media (min-width: 520px) {
+  .modal {
+    border-radius: var(--radius-lg);
+  }
+}
+
+@keyframes modal-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 16px 18px;
+  border-bottom: 1.5px solid var(--line);
+}
+
+.modal-head h3 {
+  font-family: var(--font-display);
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text-1);
+}
+
+.modal-close {
+  background: transparent;
+  color: var(--text-3);
+  font-size: 16px;
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-sm);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: background var(--fast) var(--ease), color var(--fast) var(--ease);
+}
+
+.modal-close:hover {
+  background: var(--surface-2);
+  color: var(--text-1);
+}
+
+.modal-body {
+  padding: 16px 18px 20px;
+  overflow-y: auto;
+}
+
+.modal-intro {
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.6;
+  margin-bottom: 14px;
+}
+
+.form-frame-wrap {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  border: 1.5px solid var(--line);
+}
+
+.form-frame {
+  width: 100%;
+  height: 60vh;
+  min-height: 420px;
+  border: none;
+  display: block;
+  background: #fff;
+}
+
+.modal-newtab {
+  display: inline-block;
+  margin-top: 12px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--amber-dark);
+  text-decoration: none;
+}
+
+.modal-newtab:hover {
+  text-decoration: underline;
+}
+
+.modal-comingsoon {
+  padding: 28px 18px;
+  text-align: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-2);
+  background: var(--surface-2);
+  border: 1.5px dashed var(--line);
+  border-radius: var(--radius-md);
+  line-height: 1.7;
+}
+
+/* ─── Timeline toggle ────────────────────────────────────── */
+.timeline-toggle-btn {
+  align-self: flex-start;
+  background: transparent;
+  color: var(--amber-dark);
+  border: 1.5px solid var(--amber-light);
+  border-radius: var(--radius-sm);
+  font-size: 12px;
+  font-family: inherit;
+  font-weight: 700;
+  cursor: pointer;
+  padding: 7px 12px;
+  transition: background var(--fast) var(--ease), border-color var(--fast) var(--ease);
+}
+
+.timeline-toggle-btn:hover {
+  background: var(--amber-light);
+  border-color: var(--amber);
+}
+
+/* ─── Stops timeline ─────────────────────────────────────── */
+.stops-timeline {
+  display: flex;
+  flex-direction: column;
+  padding: 4px 16px 4px 0;
+  border-right: 2px solid var(--surface-3);
+  margin-right: 6px;
+  transition: opacity var(--slow) var(--ease);
+}
+
+.stops-timeline.transitioning {
+  opacity: .3;
+}
+
+.timeline-item {
+  position: relative;
+  padding: 6px 16px 6px 0;
+}
+
+.timeline-dot {
+  position: absolute;
+  right: -5px;
+  top: 13px;
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--surface-3);
+  border: 2px solid var(--surface);
+}
+
+.timeline-item.origin .timeline-dot {
+  background: var(--amber);
+  width: 11px;
+  height: 11px;
+  right: -7px;
+  top: 11px;
+  border-color: var(--surface);
+}
+
+.timeline-item.destination .timeline-dot {
+  background: var(--green);
+  width: 11px;
+  height: 11px;
+  right: -7px;
+  top: 11px;
+  border-color: var(--surface);
+}
+
+.timeline-item.in-between .timeline-dot {
+  background: var(--text-3);
+}
+
+.stop-name {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--text-3);
+}
+
+.timeline-item.origin .stop-name {
+  font-weight: 700;
+  color: var(--amber-dark);
+  font-size: 14px;
+}
+
+.timeline-item.destination .stop-name {
+  font-weight: 700;
+  color: var(--green);
+  font-size: 14px;
+}
+
+.timeline-item.in-between .stop-name {
+  color: var(--text-2);
+}
+
+.timeline-item.outside-ride .stop-name {
+  color: var(--text-3);
+  font-weight: 400;
+}
+
+/* Hidden stops summary */
+.timeline-summary-item {
+  position: relative;
+  padding: 4px 16px 4px 0;
+}
+
+.timeline-summary-item::before {
+  content: '';
+  position: absolute;
+  right: -4px;
+  top: 12px;
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--surface-3);
+  border: 2px solid var(--surface);
+}
+
+.timeline-summary-item span {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-3);
+  background: var(--surface-2);
+  padding: 2px 8px;
+  border-radius: var(--radius-sm);
+}
+
+/* ─── Transfer card ──────────────────────────────────────── */
+.transfer-card {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 18px;
+  border: 1.5px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+  transition: border-color var(--slow) var(--ease),
+    box-shadow var(--slow) var(--ease);
+}
+
+.transfer-card:hover {
+  border-color: var(--blue);
+  box-shadow: var(--shadow-3);
+}
+
+.transfer-summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--surface-2);
+  padding: 11px 14px;
+  border-radius: var(--radius-md);
+}
+
+.arrow-between {
+  display: inline-flex;
+  align-items: center;
+  color: var(--text-3);
+}
+
+.arrow-between .dir-arrow {
+  width: 18px;
+  height: 18px;
+  color: var(--text-3);
+}
+
+.transfer-hub {
+  font-size: 12px;
+  color: var(--text-2);
+  font-weight: 500;
+}
+
+.transfer-hub .hub-name {
+  color: var(--blue);
+  font-weight: 700;
+  background: var(--blue-light);
+  padding: 1px 7px;
+  border-radius: var(--radius-sm);
+}
+
+.legs-container {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.leg-card {
+  background: var(--surface-2);
+  border-radius: var(--radius-md);
+  padding: 14px 14px 14px 18px;
+  position: relative;
+  overflow: hidden;
+}
+
+.leg-card .line-subtitle {
+  margin-top: 6px;
+}
+
+.leg-card::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  width: 4px;
+  background: var(--amber);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+}
+
+.leg-card.leg-two::before {
+  background: var(--green);
+}
+
+.leg-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 8px;
+}
+
+.second-label {
+  color: var(--green);
+  background: var(--green-light);
+}
+
+/* ─── Empty / no results state ───────────────────────────── */
+.empty-state {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  text-align: center;
+  padding: 48px 20px;
+  background: var(--surface);
+  border: 1.5px dashed var(--line);
+  border-radius: var(--radius-lg);
+  color: var(--text-3);
+}
+
+.empty-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: .45;
+}
+
+.empty-state p {
+  font-size: 13px;
+  font-weight: 400;
+  color: var(--text-3);
+  max-width: 260px;
+  line-height: 1.6;
+}
+
+/* ─── Loading spinner ────────────────────────────────────── */
+.loading-spinner {
+  display: flex;
+  justify-content: center;
+  padding: 40px 0;
+}
+
+.spinner {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 3px solid var(--surface-3);
+  border-top-color: var(--amber);
+  animation: spin .7s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* ─── Footer ─────────────────────────────────────────────── */
+.app-footer {
+  text-align: center;
+  padding: 16px 0 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  border-top: 1.5px solid var(--line);
+  margin-top: 4px;
+}
+
+.app-footer p,
+.gtfs-credit {
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--text-3);
+}
+
+/* ─── Utility ────────────────────────────────────────────── */
+.hidden {
+  display: none !important;
+}
+
+/* ─── English (LTR) overrides ────────────────────────────── */
+html[lang="en"] {
+  direction: ltr;
+}
+
+html[lang="en"] .ad-placeholder,
+html[lang="en"] .lang-btn {
+  letter-spacing: .3px;
+}
+
+html[lang="en"] .suggestions-list li {
+  text-align: left;
+}
+
+html[lang="en"] .section-title {
+  border-right: none;
+  border-left: 3px solid var(--amber);
+  padding-right: 0;
+  padding-left: 11px;
+}
+
+html[lang="en"] .stops-timeline {
+  border-right: none;
+  border-left: 2px solid var(--surface-3);
+  margin-right: 0;
+  margin-left: 6px;
+  padding-right: 0;
+  padding-left: 16px;
+}
+
+html[lang="en"] .timeline-item {
+  padding-right: 0;
+  padding-left: 16px;
+}
+
+html[lang="en"] .timeline-dot {
+  right: auto;
+  left: -5px;
+}
+
+html[lang="en"] .timeline-item.origin .timeline-dot,
+html[lang="en"] .timeline-item.destination .timeline-dot {
+  right: auto;
+  left: -7px;
+}
+
+html[lang="en"] .timeline-summary-item {
+  padding-right: 0;
+  padding-left: 16px;
+}
+
+html[lang="en"] .timeline-summary-item::before {
+  right: auto;
+  left: -4px;
+}
+
+html[lang="en"] .input-icon {
+  margin-left: 0;
+  margin-right: 0;
+  order: -1;
+}
+
+html[lang="en"] .leg-card::before {
+  right: auto;
+  left: 0;
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
+}
